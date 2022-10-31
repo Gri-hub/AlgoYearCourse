@@ -36,18 +36,27 @@ void Qsort(T* array, size_t size) {
   Qsort(array, 0, size - 1);
 }
 
+void BuildArray(int arr[], size_t size) {
+  for (size_t i = 0; i < size; ++i) {
+    std::cin >> arr[i];
+  }
+}
+
+void OutPut(int arr[], size_t size) {
+  for (size_t i = 0; i < size; ++i) {
+    std::cout << arr[i] << " ";
+  }
+}
+
 int main() {
   size_t array_size;
   std::cin >> array_size;
   int* array = new int[array_size];
-  for (size_t i = 0; i < array_size; ++i) {
-    std::cin >> array[i];
-  }
+  BuildArray(array, array_size);
 
   Qsort(array, array_size);
-  for (size_t i = 0; i < array_size; ++i) {
-    std::cout << array[i] << " ";
-  }
+
+  OutPut(array, array_size);
   delete[] array;
   return 0;
 }
